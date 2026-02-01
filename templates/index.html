@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Viewer</title>
+</head>
+
+<style>
+   body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background-color: #222;
+        color: #ccc;
+    }
+    form {
+        text-align: center;
+        margin-bottom: 20px;
+        width: 70%;
+        margin: 20px auto;
+    }
+    input[type="text"] {
+        width: 300px;
+        padding: 8px;
+        margin: auto;
+        border-radius: 8px;
+    }
+    button {
+        padding: 8px 12px;
+        background: #be9ae2;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+    h2 {
+        margin: 20px 0;
+        text-align: center;
+    }
+    div.chapter-container {
+        padding: 10px;
+        font-size: 20px;
+        line-height: 160%;
+        width: 70%;
+        margin: 20px auto;
+    }
+</style>
+
+<body>
+    <form action="/" method="post">
+        <input type="text" name="url" id="urlInput" value="{{ request.form.get('url', '') }}" placeholder="Enter URL here">
+        <button id="fetchButton" type="submit">Generate</button>
+    </form>
+    {% if data %}
+        <h2>Title: {{ data.title|safe }}</h2>
+        <div class="chapter-container">
+            <div>{{ data.chapter|safe }}</div>
+        </div>
+    {% endif %}
+</body>
+</html>
