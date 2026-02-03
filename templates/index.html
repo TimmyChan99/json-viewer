@@ -57,5 +57,8 @@
             <div>{{ data.chapter|safe }}</div>
         </div>
     {% endif %}
+    {% if error %}
+        <h2 style="color: red; text-align: center;">{{ error }}</h2>
+    {% endif %}
 </body>
 </html>

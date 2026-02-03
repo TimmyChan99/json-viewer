@@ -43,5 +43,5 @@ def scrape():
             "chapter_number": parsed_data.get("slug")
         }
         return render_template('index.html', data=data)
-    return render_template('index.html')
+    return render_template('index.html', error="No JSON endpoint found.")
 
